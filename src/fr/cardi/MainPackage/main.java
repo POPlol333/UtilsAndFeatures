@@ -4,8 +4,9 @@ import fr.cardi.MainPackage.GUI.AdminMenu;
 import fr.cardi.MainPackage.GUI.preload.GUIClickListener;
 import fr.cardi.MainPackage.Listeners.ChatTrigger;
 import fr.cardi.MainPackage.Listeners.PlayerRelative;
-import fr.cardi.MainPackage.UsualCommands.SetHealth;
-import org.bukkit.plugin.PluginManager;
+import fr.cardi.MainPackage.UsualCommands.HealthAndFood.Feed;
+import fr.cardi.MainPackage.UsualCommands.HealthAndFood.Heal;
+import fr.cardi.MainPackage.UsualCommands.HealthAndFood.setHealth;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
@@ -26,7 +27,9 @@ public class main extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new GUIClickListener(), this);
 
             getCommand("admin-gui").setExecutor(new AdminMenu());
-            getCommand("manualSetHealth").setExecutor(new SetHealth());
+            getCommand("setHealth").setExecutor(new setHealth());
+            getCommand("heal").setExecutor(new Heal());
+            getCommand("feed").setExecutor(new Feed());
 
         }
 

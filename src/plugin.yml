@@ -6,6 +6,12 @@ commands:
     admin-gui:
       description: Donne accès à un menu contenant tout les objets customisés !
       permission: UtilsAndFeatures.admin-gui
-    manualSetHealth:
-      description: Permet de configurer manuellement la vie maximal de quelqu'un !
-      permission: UtilsAndFeatures.manualSetHealth
+    setHealth:
+      description: Permet de configurer manuellement la vie maximal du joueur cible !
+      permission: UtilsAndFeatures.setHealth
+    heal:
+      description: Guérit le joueur cible !
+      permission: UtilsAndFeatures.heal
+    feed:
+      description: Remplit la barre de nourriture du joueur cible !
+      permission: UtilsAndFeatuers.feed
