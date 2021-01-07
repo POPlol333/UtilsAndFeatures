@@ -45,24 +45,7 @@ public class ReleaseClass implements Listener {
             if (it.getItemMeta().getDisplayName().contains("§7§l4")) {
                 UseArtefact(player, ItemAssignation.TalismanProtection4, "§7§lTalisman Protecteur", 4, "DAMAGE_RESISTANCE");
             }
-        } /*else if (it.hasItemMeta() && it.getItemMeta().hasDisplayName() && it.getItemMeta().getDisplayName().contains("§c§lPommes de vie")) {
-            if (player.getMaxHealth() >= 40) {
-                Bukkit.broadcastMessage("§l" + pName + " §r§b>> §4§l<!> ARTEFACT TROP UTILISÉE ");
-            } else {
-                final int indexItem6 = player.getInventory().first(ItemAssignation.AmuletteSpeedTier1);
-                try {
-                    player.sendMessage("§6Vous venez d'utiliser une §c§lPommes de vie");
-                    player.setMaxHealth(player.getMaxHealth() + 4);
-                    player.sendMessage("§7§là noter que la vie maximale est de 40HP soit, deux barres entières !");
-                    player.getInventory().clear(indexItem6);
-
-                } catch (ArrayIndexOutOfBoundsException a) {
-                    Bukkit.broadcastMessage("§l" + player.getName() + " §r§b>> §4§l<!> VEUILLEZ DESTACKEZ VOS ARTEFACTS !");
-                }
-            }
         }
-        */
-
         else {
             Bukkit.broadcastMessage("§l" + pName + " §r§b>> §4§l<!> AUCUN ARTEFACT EN MAIN");
         }
