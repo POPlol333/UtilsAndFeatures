@@ -13,6 +13,7 @@ public class ChatTrigger implements Listener {
     public void chatCheck(PlayerChatEvent e) {
 
         e.setCancelled(true);
+
         String message = e.getMessage();
 
         Player player = e.getPlayer();

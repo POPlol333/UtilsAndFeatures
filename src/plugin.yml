@@ -15,3 +15,7 @@ commands:
     feed:
       description: Remplit la barre de nourriture du joueur cible !
       permission: UtilsAndFeatuers.feed
+    setUnbreakable:
+      description: Rend un objet incassable !
+      permission: UtilsAndFeatures.setUnbreakable
+

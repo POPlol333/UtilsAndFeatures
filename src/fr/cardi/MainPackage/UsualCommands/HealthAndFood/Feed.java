@@ -9,13 +9,9 @@ import org.bukkit.entity.Player;
 public class Feed implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String msg, String[] args) {
-
         if (sender instanceof Player) {
-
             Player player = (Player) sender;
-
             if (cmd.getName().equalsIgnoreCase("feed")) {
-
                 if (args.length < 1 || args.length > 1) {
                     player.sendMessage("§7§lLa commande est /feed <Player>");
                 } else if (args.length == 1) {

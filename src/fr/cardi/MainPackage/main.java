@@ -3,10 +3,12 @@ package fr.cardi.MainPackage;
 import fr.cardi.MainPackage.GUI.AdminMenu;
 import fr.cardi.MainPackage.GUI.preload.GUIClickListener;
 import fr.cardi.MainPackage.Listeners.ChatTrigger;
+import fr.cardi.MainPackage.Listeners.Consequence.ReleaseClass;
 import fr.cardi.MainPackage.Listeners.PlayerRelative;
 import fr.cardi.MainPackage.UsualCommands.HealthAndFood.Feed;
 import fr.cardi.MainPackage.UsualCommands.HealthAndFood.Heal;
 import fr.cardi.MainPackage.UsualCommands.HealthAndFood.setHealth;
+import fr.cardi.MainPackage.UsualCommands.setUnbreakable;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
@@ -25,12 +27,14 @@ public class main extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new PlayerRelative(), this);
             getServer().getPluginManager().registerEvents(new ChatTrigger(), this);
             getServer().getPluginManager().registerEvents(new GUIClickListener(), this);
+            getServer().getPluginManager().registerEvents(new ReleaseClass(), this);
+
 
             getCommand("admin-gui").setExecutor(new AdminMenu());
             getCommand("setHealth").setExecutor(new setHealth());
             getCommand("heal").setExecutor(new Heal());
             getCommand("feed").setExecutor(new Feed());
-
+            getCommand("setUnbreakable").setExecutor(new setUnbreakable());
         }
 
         public void onDisable(){

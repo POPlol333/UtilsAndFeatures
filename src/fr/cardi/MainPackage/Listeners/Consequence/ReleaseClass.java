@@ -4,12 +4,15 @@ import fr.cardi.MainPackage.ItemBuilderAndAssignation.ItemAssignation;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 
-public class ReleaseClass {
+public class ReleaseClass implements Listener {
 
     public static void Release(Player player) {
 
@@ -42,7 +45,7 @@ public class ReleaseClass {
             if (it.getItemMeta().getDisplayName().contains("§7§l4")) {
                 UseArtefact(player, ItemAssignation.TalismanProtection4, "§7§lTalisman Protecteur", 4, "DAMAGE_RESISTANCE");
             }
-        } else if (it.hasItemMeta() && it.getItemMeta().hasDisplayName() && it.getItemMeta().getDisplayName().contains("§c§lPommes de vie")) {
+        } /*else if (it.hasItemMeta() && it.getItemMeta().hasDisplayName() && it.getItemMeta().getDisplayName().contains("§c§lPommes de vie")) {
             if (player.getMaxHealth() >= 40) {
                 Bukkit.broadcastMessage("§l" + pName + " §r§b>> §4§l<!> ARTEFACT TROP UTILISÉE ");
             } else {
@@ -57,7 +60,10 @@ public class ReleaseClass {
                     Bukkit.broadcastMessage("§l" + player.getName() + " §r§b>> §4§l<!> VEUILLEZ DESTACKEZ VOS ARTEFACTS !");
                 }
             }
-        } else {
+        }
+        */
+
+        else {
             Bukkit.broadcastMessage("§l" + pName + " §r§b>> §4§l<!> AUCUN ARTEFACT EN MAIN");
         }
     }
@@ -68,11 +74,32 @@ public class ReleaseClass {
             p.removePotionEffect(PotionEffectType.getByName(effectPotion));
             p.getInventory().clear(indexItem);
             p.sendMessage(String.format("§6Vous venez d'utiliser votre  %s Tier %s", Type, tier.toString()));
-            p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effectPotion), Integer.MAX_VALUE, tier-1));
+            p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effectPotion), Integer.MAX_VALUE, tier - 1));
 
         } catch (ArrayIndexOutOfBoundsException a) {
             Bukkit.broadcastMessage("§l" + p.getName() + " §r§b>> §4§l<!> VEUILLEZ DESTACKEZ VOS ARTEFACTS !");
         }
+    }
+
+    @EventHandler
+    public void onEat(PlayerItemConsumeEvent e) {
+
+        Player player = e.getPlayer();
+        ItemStack it = e.getItem();
+
+        if (it.hasItemMeta() && it.getItemMeta().hasDisplayName() && it.getItemMeta().getDisplayName().contains("§c§lPommes de vie")) {
+
+            if (player.getMaxHealth() >= 40) {
+                Bukkit.broadcastMessage("§l" + player.getName() + " §r§b>> §4§l<!> ARTEFACT TROP UTILISÉE ");
+            } else {
+                final int indexItem6 = player.getInventory().first(ItemAssignation.AmuletteSpeedTier1);
+                player.sendMessage("§6Vous venez d'utiliser une §c§lPommes de vie");
+                player.setMaxHealth(player.getMaxHealth() + 4);
+                player.sendMessage("§7§là noter que la vie maximale est de 40HP soit, deux barres entières !");
+                player.getInventory().clear(indexItem6);
+            }
+        }
+
     }
 
 }

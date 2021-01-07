@@ -1,6 +1,5 @@
 package fr.cardi.MainPackage.Listeners;
 
-import fr.cardi.MainPackage.GUI.AdminMenu;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,17 +16,13 @@ public class PlayerRelative implements Listener {
     public void onJoin(PlayerJoinEvent e)
     {
         Player player = e.getPlayer();
-
-
         e.setJoinMessage(ChatColor.GREEN+player.getName()+ " a rejoint le serveur !");
-        player.updateInventory();
     }
 
     @EventHandler
     public void onQuit(PlayerQuitEvent e)
     {
         Player player = e.getPlayer();
-
         e.setQuitMessage(ChatColor.GREEN +player.getName()+ " a quitté le serveur !");
 
     }
