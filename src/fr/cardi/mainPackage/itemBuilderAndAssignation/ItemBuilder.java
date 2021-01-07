@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class itemBuilder {
+public class ItemBuilder {
 
     public static ItemStack customItemConfig(Material material, String Name, String desc) {
 

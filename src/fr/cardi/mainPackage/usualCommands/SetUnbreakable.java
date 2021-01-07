@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class setUnbreakable implements CommandExecutor {
+public class SetUnbreakable implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String msg, String[] args) {

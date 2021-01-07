@@ -8,7 +8,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class guiClickListener implements Listener {
+public class GuiClickListener implements Listener {
 
 
     @EventHandler
@@ -26,13 +26,13 @@ public class guiClickListener implements Listener {
 
             if(current.getType()== Material.FEATHER){
                 player.closeInventory();
-                preloadMenu.AdminSpeedInventory(player);
+                PreloadMenu.AdminSpeedInventory(player);
 
             }
 
             if(current.getType()== Material.DIAMOND) {
                 player.closeInventory();
-                preloadMenu.AdminProtectionInventory(player);
+                PreloadMenu.AdminProtectionInventory(player);
 
             }
 

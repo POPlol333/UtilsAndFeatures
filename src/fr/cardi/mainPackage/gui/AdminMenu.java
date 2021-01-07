@@ -1,14 +1,14 @@
 package fr.cardi.mainPackage.gui;
 
 
-import fr.cardi.mainPackage.gui.preload.preloadMenu;
+import fr.cardi.mainPackage.gui.preload.PreloadMenu;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 
-public class adminMenu implements CommandExecutor {
+public class AdminMenu implements CommandExecutor {
 
 
 
@@ -20,7 +20,7 @@ public class adminMenu implements CommandExecutor {
 
             if(cmd.getName().equalsIgnoreCase("admin-gui")){
 
-                preloadMenu.AdminMainInventory(player);
+                PreloadMenu.AdminMainInventory(player);
 
             }
 

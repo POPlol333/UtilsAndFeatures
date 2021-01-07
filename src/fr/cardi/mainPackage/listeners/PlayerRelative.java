@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 
-public class playerRelative implements Listener {
+public class PlayerRelative implements Listener {
 
 
 
