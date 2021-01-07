@@ -1,14 +1,14 @@
-package fr.cardi.MainPackage.GUI;
+package fr.cardi.mainPackage.gui;
 
 
-import fr.cardi.MainPackage.GUI.preload.preloadMenu;
+import fr.cardi.mainPackage.gui.preload.preloadMenu;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 
-public class AdminMenu implements CommandExecutor {
+public class adminMenu implements CommandExecutor {
 
 
 

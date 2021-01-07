@@ -1,13 +1,13 @@
-package fr.cardi.MainPackage.Listeners;
+package fr.cardi.mainPackage.listeners;
 
-import fr.cardi.MainPackage.Listeners.Consequence.ReleaseClass;
+import fr.cardi.mainPackage.listeners.consequence.releaseClass;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChatEvent;
 
-public class ChatTrigger implements Listener {
+public class chatTrigger implements Listener {
 
     @EventHandler
     public void chatCheck(PlayerChatEvent e) {
@@ -22,7 +22,7 @@ public class ChatTrigger implements Listener {
         Bukkit.broadcastMessage("§l"+pName + " §r§b>> §r" +message.replace("&", "§"));
 
         if(message.contains("Release")){
-            ReleaseClass.Release(player);
+            releaseClass.Release(player);
         }
 
 

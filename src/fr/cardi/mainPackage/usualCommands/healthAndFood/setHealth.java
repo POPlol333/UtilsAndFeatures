@@ -1,4 +1,4 @@
-package fr.cardi.MainPackage.UsualCommands.HealthAndFood;
+package fr.cardi.mainPackage.usualCommands.healthAndFood;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

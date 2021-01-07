@@ -1,4 +1,4 @@
-package fr.cardi.MainPackage.Listeners;
+package fr.cardi.mainPackage.listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 
-public class PlayerRelative implements Listener {
+public class playerRelative implements Listener {
 
 
 

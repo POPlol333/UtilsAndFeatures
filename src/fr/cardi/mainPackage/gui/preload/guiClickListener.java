@@ -1,7 +1,5 @@
-package fr.cardi.MainPackage.GUI.preload;
+package fr.cardi.mainPackage.gui.preload;
 
-
-import fr.cardi.MainPackage.GUI.preload.preloadMenu;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,7 +8,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class GUIClickListener implements Listener {
+public class guiClickListener implements Listener {
 
 
     @EventHandler

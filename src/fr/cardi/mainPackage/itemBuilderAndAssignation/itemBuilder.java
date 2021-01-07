@@ -1,4 +1,4 @@
-package fr.cardi.MainPackage.ItemBuilderAndAssignation;
+package fr.cardi.mainPackage.itemBuilderAndAssignation;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemBuilder {
+public class itemBuilder {
 
     public static ItemStack customItemConfig(Material material, String Name, String desc) {
 

@@ -1,4 +1,4 @@
-package fr.cardi.MainPackage.UsualCommands;
+package fr.cardi.mainPackage.usualCommands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
