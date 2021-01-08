@@ -47,20 +47,21 @@ public class ReleaseClass implements Listener {
             }
         }
         else {
-            Bukkit.broadcastMessage("§l" + pName + " §r§b>> §4§l<!> AUCUN ARTEFACT EN MAIN");
+            player.sendMessage("§4§l<!> AUCUN ARTEFACT EN MAIN");
         }
     }
 
     public static void UseArtefact(Player p, ItemStack it, String Type, Integer tier, String effectPotion) {
         final int indexItem = p.getInventory().first(it);
         try {
-            p.removePotionEffect(PotionEffectType.getByName(effectPotion));
             p.getInventory().clear(indexItem);
+            p.removePotionEffect(PotionEffectType.getByName(effectPotion));
             p.sendMessage(String.format("§6Vous venez d'utiliser votre  %s Tier %s", Type, tier.toString()));
             p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effectPotion), Integer.MAX_VALUE, tier - 1));
+            Bukkit.broadcastMessage("§l"+p.getName() + " §r§b>> §5§lאני משחרר את כוחו של החפץ הזה");
 
         } catch (ArrayIndexOutOfBoundsException a) {
-            Bukkit.broadcastMessage("§l" + p.getName() + " §r§b>> §4§l<!> VEUILLEZ DESTACKER VOS ARTEFACTS !");
+            p.sendMessage("§4§l<!> VEUILLEZ DESTACKER VOS ARTEFACTS !");
         }
     }
 

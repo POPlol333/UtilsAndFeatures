@@ -18,10 +18,10 @@ public class SetHealth implements CommandExecutor {
 
             if(cmd.getName().equalsIgnoreCase("setHealth")){
 
-                if(args.length < 2 || args.length > 2) {
+                if(args.length != 2) {
                     player.sendMessage("§7§lLa commande est /manualSetHealth <Player> <int>");
                 }
-                else if (args.length == 2) {
+                else {
 
                     String targetName = args[0];
                     if(Bukkit.getPlayer(targetName) != null) {

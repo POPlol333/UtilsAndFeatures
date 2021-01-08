@@ -19,13 +19,13 @@ public class ChatTrigger implements Listener {
         Player player = e.getPlayer();
         String pName = player.getName();
 
-        Bukkit.broadcastMessage("§l"+pName + " §r§b>> §r" +message.replace("&", "§"));
 
         if(message.contains("Release")){
             ReleaseClass.Release(player);
+
+        } else {
+            Bukkit.broadcastMessage("§l"+pName + " §r§b>> §r" +message.replace("&", "§"));
         }
-
-
     }
 
 }
