@@ -2,23 +2,38 @@ main: fr.cardi.mainPackage.Main
 author: POPlol333
 version: 1.1.3
 name: UtilsAndFeatures
+
+
 commands:
     admin-gui:
       description: Donne accès à un menu contenant tout les objets customisés !
       permission: UtilsAndFeatures.admin-gui
+      permission-message: §4§lTu n'as pas la permission !
     setHealth:
       description: Permet de configurer manuellement la vie maximal du joueur cible !
       permission: UtilsAndFeatures.setHealth
+      permission-message: §4§lTu n'as pas la permission !
     heal:
       description: Guérit le joueur cible !
       permission: UtilsAndFeatures.heal
+      permission-message: §4§lTu n'as pas la permission !
     feed:
       description: Remplit la barre de nourriture du joueur cible !
       permission: UtilsAndFeatuers.feed
+      permission-message: §4§lTu n'as pas la permission !
     setUnbreakable:
       description: Rend un objet incassable !
       permission: UtilsAndFeatures.setUnbreakable
+      permission-message: §4§lTu n'as pas la permission !
     invsee:
       description: Permet de fouiller l'inventaire d'un joueur cible !
       permission: UtilsAndFeatures.invsee
-
+      permission-message: §4§lTu n'as pas la permission !
+    broadcast:
+      description: Permet de faire une annonce
+      permission: UtilsAndFeatures.broadcast
+      permission-message: §4§lTu n'as pas la permission !
+    head:
+      description: Permet d'obtenir la tête d'un joueur cible !
+      permission: UtilsAndFeatures.broadcast
+      permission-message: §4§lTu n'as pas la permission !

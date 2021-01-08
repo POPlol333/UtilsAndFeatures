@@ -6,6 +6,8 @@ import fr.cardi.mainPackage.itemBuilderAndAssignation.ItemAssignation;
 import fr.cardi.mainPackage.listeners.ChatTrigger;
 import fr.cardi.mainPackage.listeners.consequence.ReleaseClass;
 import fr.cardi.mainPackage.listeners.PlayerRelative;
+import fr.cardi.mainPackage.usualCommands.Broadcast;
+import fr.cardi.mainPackage.usualCommands.head;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.Feed;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.Heal;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.SetHealth;
@@ -20,14 +22,15 @@ import java.util.logging.Logger;
 
 public class Main extends JavaPlugin {
 
+        public static Main plugin;
+
         private Logger logger = Logger.getLogger("Minecraft");
 
         @Override
         public void onEnable(){
 
 
-            logger.warning("[UtilsAndFeatures a bien demarrer]");
-
+            logger.warning("[UtilsAndFeatures a bien démarré]");
 
             getServer().getPluginManager().registerEvents(new PlayerRelative(), this);
             getServer().getPluginManager().registerEvents(new ChatTrigger(), this);
@@ -41,15 +44,20 @@ public class Main extends JavaPlugin {
             getCommand("feed").setExecutor(new Feed());
             getCommand("setUnbreakable").setExecutor(new SetUnbreakable());
             getCommand("invsee").setExecutor(new Invsee());
+            getCommand("broadcast").setExecutor(new Broadcast());
+            getCommand("head").setExecutor(new head());
 
 
             Bukkit.addRecipe(SpeedRecipe());
             Bukkit.addRecipe(ProtectionRecipe());
+            Bukkit.addRecipe(lifeAppleRecipe());
+            Bukkit.addRecipe(energyDrinkRecipe());
+
         }
 
         @Override
         public void onDisable(){
-            logger.info("Sa s'eteint");
+            logger.info("s'est éteint");
 
         }
 
@@ -76,6 +84,32 @@ public class Main extends JavaPlugin {
 
             return recipe;
         }
+
+        public ShapedRecipe lifeAppleRecipe() {
+
+            ShapedRecipe recipe = new ShapedRecipe(ItemAssignation.PommeDeVie);
+            recipe.shape("GGG","GPG","GGG");
+
+            recipe.setIngredient('G', Material.GOLD_BLOCK);
+            recipe.setIngredient('P', Material.GOLDEN_APPLE, 1);
+
+            return recipe;
+        }
+
+        public ShapedRecipe energyDrinkRecipe() {
+
+            ShapedRecipe recipe = new ShapedRecipe(ItemAssignation.EnergyDrink);
+            recipe.shape("SBS","PNF","SBS");
+
+            recipe.setIngredient('S', Material.SUGAR);
+            recipe.setIngredient('B', Material.BLAZE_POWDER);
+            recipe.setIngredient('P', Material.DIAMOND_PICKAXE);
+            recipe.setIngredient('N', Material.NETHER_STAR);
+            recipe.setIngredient('F', Material.RABBIT_FOOT);
+
+            return recipe;
+        }
+
 }
 
 

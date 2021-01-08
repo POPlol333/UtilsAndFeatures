@@ -19,4 +19,6 @@ public class ItemAssignation {
 
     public static ItemStack PommeDeVie= ItemBuilder.customItemConfig(Material.GOLDEN_APPLE, "§c§lPomme de vie", "Octroie 2 coeurs supplémentaires");
 
+    public static ItemStack EnergyDrink = ItemBuilder.customItemConfig(Material.POTION, "§2§lEnergy §e§lDrink", "Boost vos capacités physiques !");
+
 }

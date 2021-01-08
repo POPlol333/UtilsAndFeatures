@@ -75,13 +75,21 @@ public class ReleaseClass implements Listener {
             if (player.getMaxHealth() >= 40) {
                 Bukkit.broadcastMessage("§l" + player.getName() + " §r§b>> §4§l<!> ARTEFACT TROP UTILISÉE ");
             } else {
-                final int indexItem = player.getInventory().first(ItemAssignation.PommeDeVie);
-                player.sendMessage("§6Vous venez d'utiliser une §c§lPomme de vie");
+                //final int indexItem = player.getInventory().first(ItemAssignation.PommeDeVie);
+                player.sendMessage("§6Vous venez de manger une §c§lPomme de vie");
                 player.setMaxHealth(player.getMaxHealth() + 4);
                 player.sendMessage("§7§lVotre vie viens d'augmenter de 2 coeurs ! !");
                 player.sendMessage("§7§là noter que la vie maximal atteignable avec ces pommes est de 40HP, deux barres entire !");
-                player.getInventory().clear(indexItem);
+                //player.getInventory().clear(indexItem);
             }
+        }
+        if (it.hasItemMeta() && it.getItemMeta().hasDisplayName() && it.getItemMeta().getDisplayName().contains("§2§lEnergy §e§lDrink")) {
+
+            player.sendMessage("§6Vous venez de boire une §2§lEnergy §e§lDrink");
+            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION , Integer.MAX_VALUE,  2));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE , Integer.MAX_VALUE,  1));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP , Integer.MAX_VALUE,  3));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING , Integer.MAX_VALUE,  3));
         }
 
     }

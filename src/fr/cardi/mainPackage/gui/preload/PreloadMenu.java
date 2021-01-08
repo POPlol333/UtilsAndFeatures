@@ -15,6 +15,7 @@ public class PreloadMenu {
         inv.setItem(0, ItemAssignation.AmuletteSpeedAdminGUI);
         inv.setItem(1, ItemAssignation.TalismanProtectionAdminGUI);
         inv.setItem(2, ItemAssignation.PommeDeVie);
+        inv.setItem(3, ItemAssignation.EnergyDrink);
 
 
         player.openInventory(inv);
