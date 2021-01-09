@@ -26,8 +26,6 @@ public class AdminMenu implements CommandExecutor {
 
         }
 
-
-
         return false;
     }
 

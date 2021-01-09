@@ -1,6 +1,6 @@
 package fr.cardi.mainPackage.listeners.consequence;
 
-import fr.cardi.mainPackage.itemBuilderAndAssignation.ItemAssignation;
+import fr.cardi.mainPackage.itemBuilderAndAssignation.Items;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -11,39 +11,46 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import java.util.logging.Logger;
+
 
 public class ReleaseClass implements Listener {
+
+    private static Logger logger = Logger.getLogger("Minecraft");
 
     public static void Release(Player player) {
 
         String pName = player.getName();
         ItemStack it = player.getItemInHand();
 
-        if (it.hasItemMeta() && it.getItemMeta().hasDisplayName() && it.getItemMeta().getDisplayName().contains("§f§lAmulette de Vitesse Tier")) {
+        if (!it.hasItemMeta()) player.sendMessage("§4§l<!> AUCUN ARTEFACT EN MAIN");;
+        if (!it.getItemMeta().hasDisplayName()) player.sendMessage("§4§l<!> AUCUN ARTEFACT EN MAIN");;
+
+        if (it.getItemMeta().getDisplayName().contains("§f§lAmulette de Vitesse Tier")) {
 
             if (it.getItemMeta().getDisplayName().contains("§f§l1")) {
-                UseArtefact(player, ItemAssignation.AmuletteSpeedTier1, "§f§lAmulette de Vitesse", 1, "SPEED");
+                UseArtefact(player, Items.AMU_SPEED_T1.getItem(), "§f§lAmulette de Vitesse", 1, "SPEED");
             }
             if (it.getItemMeta().getDisplayName().contains("§f§l2")) {
-                UseArtefact(player, ItemAssignation.AmuletteSpeedTier2, "§f§lAmulette de Vitesse", 2, "SPEED");
+                UseArtefact(player, Items.AMU_SPEED_T2.getItem(), "§f§lAmulette de Vitesse", 2, "SPEED");
             }
             if (it.getItemMeta().getDisplayName().contains("§f§l3")) {
-                UseArtefact(player, ItemAssignation.AmuletteSpeedTier3, "§f§lAmulette de Vitesse", 3, "SPEED");
+                UseArtefact(player, Items.AMU_SPEED_T3.getItem(), "§f§lAmulette de Vitesse", 3, "SPEED");
             }
-        } else if (it.hasItemMeta() && it.getItemMeta().hasDisplayName() && it.getItemMeta().getDisplayName().contains("§7§lTalisman Protecteur Tier")) {
+        } else if (it.getItemMeta().getDisplayName().contains("§7§lTalisman Protecteur Tier")) {
 
             if (it.getItemMeta().getDisplayName().contains("§7§l1")) {
-                UseArtefact(player, ItemAssignation.TalismanProtection1, "§7§lTalisman Protecteur", 1, "DAMAGE_RESISTANCE");
+                UseArtefact(player, Items.TAL_PROTEC_T1.getItem(), "§7§lTalisman Protecteur", 1, "DAMAGE_RESISTANCE");
             }
             if (it.getItemMeta().getDisplayName().contains("§7§l2")) {
-                UseArtefact(player, ItemAssignation.TalismanProtection2, "§7§lTalisman Protecteur", 2, "DAMAGE_RESISTANCE");
+                UseArtefact(player, Items.TAL_PROTEC_T2.getItem(), "§7§lTalisman Protecteur", 2, "DAMAGE_RESISTANCE");
             }
             if (it.getItemMeta().getDisplayName().contains("§7§l3")) {
-                UseArtefact(player, ItemAssignation.TalismanProtection3, "§7§lTalisman Protecteur", 3, "DAMAGE_RESISTANCE");
+                UseArtefact(player, Items.TAL_PROTEC_T3.getItem(), "§7§lTalisman Protecteur", 3, "DAMAGE_RESISTANCE");
             }
 
             if (it.getItemMeta().getDisplayName().contains("§7§l4")) {
-                UseArtefact(player, ItemAssignation.TalismanProtection4, "§7§lTalisman Protecteur", 4, "DAMAGE_RESISTANCE");
+                UseArtefact(player, Items.TAL_PROTEC_T4.getItem(), "§7§lTalisman Protecteur", 4, "DAMAGE_RESISTANCE");
             }
         }
         else {
@@ -59,6 +66,7 @@ public class ReleaseClass implements Listener {
             p.sendMessage(String.format("§6Vous venez d'utiliser votre  %s Tier %s", Type, tier.toString()));
             p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effectPotion), Integer.MAX_VALUE, tier - 1));
             Bukkit.broadcastMessage("§l"+p.getName() + " §r§b>> §5§lאני משחרר את כוחו של החפץ הזה");
+            logger.warning(String.format("%s A UTILISÉ UN %s de Tier %s", p.getName(), Type, tier.toString()));
 
         } catch (ArrayIndexOutOfBoundsException a) {
             p.sendMessage("§4§l<!> VEUILLEZ DESTACKER VOS ARTEFACTS !");

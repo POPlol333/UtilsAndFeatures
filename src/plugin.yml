@@ -7,32 +7,40 @@ commands:
     admin-gui:
       description: Donne accès à un menu contenant tout les objets customisés !
       permission: UtilsAndFeatures.admin-gui
-      permission-message: §4§lTu n'as pas la permission !
+      permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !
     setHealth:
       description: Permet de configurer manuellement la vie maximal du joueur cible !
       permission: UtilsAndFeatures.setHealth
-      permission-message: §4§lTu n'as pas la permission !
+      permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !
     heal:
       description: Guérit le joueur cible !
       permission: UtilsAndFeatures.heal
-      permission-message: §4§lTu n'as pas la permission !
+      permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !
     feed:
       description: Remplit la barre de nourriture du joueur cible !
       permission: UtilsAndFeatuers.feed
-      permission-message: §4§lTu n'as pas la permission !
+      permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !
     setUnbreakable:
       description: Rend un objet incassable !
       permission: UtilsAndFeatures.setUnbreakable
-      permission-message: §4§lTu n'as pas la permission !
+      permission-message: §4§oTu n'as pas la permission !
     invsee:
       description: Permet de fouiller l'inventaire d'un joueur cible !
       permission: UtilsAndFeatures.invsee
-      permission-message: §4§lTu n'as pas la permission !
+      permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !
     broadcast:
       description: Permet de faire une annonce
       permission: UtilsAndFeatures.broadcast
-      permission-message: §4§lTu n'as pas la permission !
+      permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !
     head:
       description: Permet d'obtenir la tête d'un joueur cible !
       permission: UtilsAndFeatures.broadcast
-      permission-message: §4§lTu n'as pas la permission !
+      permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !
+    speak:
+      description: Permet de faire parler quelqu'un !
+      permission: UtilsAndFeatures.speak
+      permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !
+    water-sealing:
+      description: water sealing
+      permission: mana.water.sealing
+      permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !

@@ -1,6 +1,5 @@
 package fr.cardi.mainPackage.gui.preload;
 
-import fr.cardi.mainPackage.itemBuilderAndAssignation.ItemAssignation;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -22,12 +21,9 @@ public class GuiClickListener implements Listener {
         if(current == null) return;
 
         if(inv.getName().equalsIgnoreCase("§5§lAdminMainInventory")) {
-            if(current.getType() != Material.GOLDEN_APPLE) e.setCancelled(true);
 
-            if(current.getType()== Material.POTION) {
-                player.getInventory().addItem(ItemAssignation.EnergyDrink);
+            e.setCancelled(true);
 
-            }
 
             if(current.getType()== Material.FEATHER){
                 player.closeInventory();
@@ -38,6 +34,12 @@ public class GuiClickListener implements Listener {
             if(current.getType()== Material.DIAMOND) {
                 player.closeInventory();
                 PreloadMenu.AdminProtectionInventory(player);
+
+            }
+
+            if(current.getType()== Material.NETHER_STAR) {
+                player.closeInventory();
+                PreloadMenu.OtherGui(player);
 
             }
 

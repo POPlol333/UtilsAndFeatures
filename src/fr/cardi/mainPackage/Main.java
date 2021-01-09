@@ -2,20 +2,20 @@ package fr.cardi.mainPackage;
 
 import fr.cardi.mainPackage.gui.AdminMenu;
 import fr.cardi.mainPackage.gui.preload.GuiClickListener;
-import fr.cardi.mainPackage.itemBuilderAndAssignation.ItemAssignation;
+import fr.cardi.mainPackage.itemBuilderAndAssignation.Items;
 import fr.cardi.mainPackage.listeners.ChatTrigger;
 import fr.cardi.mainPackage.listeners.consequence.ReleaseClass;
 import fr.cardi.mainPackage.listeners.PlayerRelative;
-import fr.cardi.mainPackage.usualCommands.Broadcast;
-import fr.cardi.mainPackage.usualCommands.head;
+import fr.cardi.mainPackage.usualCommands.*;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.Feed;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.Heal;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.SetHealth;
-import fr.cardi.mainPackage.usualCommands.Invsee;
-import fr.cardi.mainPackage.usualCommands.SetUnbreakable;
+import fr.cardi.mana.ManaGestion;
+import fr.cardi.mana.technique.WaterSealing;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
@@ -26,17 +26,17 @@ public class Main extends JavaPlugin {
 
         private Logger logger = Logger.getLogger("Minecraft");
 
+
+
         @Override
         public void onEnable(){
 
+            saveDefaultConfig();
 
             logger.warning("[UtilsAndFeatures a bien démarré]");
 
-            getServer().getPluginManager().registerEvents(new PlayerRelative(), this);
-            getServer().getPluginManager().registerEvents(new ChatTrigger(), this);
-            getServer().getPluginManager().registerEvents(new GuiClickListener(), this);
-            getServer().getPluginManager().registerEvents(new ReleaseClass(), this);
 
+            registerEvents();
 
             getCommand("admin-gui").setExecutor(new AdminMenu());
             getCommand("setHealth").setExecutor(new SetHealth());
@@ -46,6 +46,8 @@ public class Main extends JavaPlugin {
             getCommand("invsee").setExecutor(new Invsee());
             getCommand("broadcast").setExecutor(new Broadcast());
             getCommand("head").setExecutor(new head());
+            getCommand("speak").setExecutor(new Speak());
+            getCommand("water-sealing").setExecutor(new WaterSealing());
 
 
             Bukkit.addRecipe(SpeedRecipe());
@@ -57,13 +59,24 @@ public class Main extends JavaPlugin {
 
         @Override
         public void onDisable(){
+            saveConfig();
             logger.info("s'est éteint");
 
         }
 
+        public void registerEvents() {
+            PluginManager pm = Bukkit.getPluginManager();
+
+            pm.registerEvents(new PlayerRelative(), this);
+            pm.registerEvents(new ChatTrigger(), this);
+            pm.registerEvents(new GuiClickListener(), this);
+            pm.registerEvents(new ReleaseClass(), this);
+            pm.registerEvents(new ManaGestion(this), this);
+        }
+
         public ShapedRecipe SpeedRecipe() {
 
-            ShapedRecipe recipe = new ShapedRecipe(ItemAssignation.AmuletteSpeedTier2);
+            ShapedRecipe recipe = new ShapedRecipe(Items.AMU_SPEED_T2.getItem());
 
             recipe.shape("SDS","SPS","SDS");
             recipe.setIngredient('D', Material.DIAMOND);
@@ -75,7 +88,7 @@ public class Main extends JavaPlugin {
 
         public ShapedRecipe ProtectionRecipe() {
 
-            ShapedRecipe recipe = new ShapedRecipe(ItemAssignation.TalismanProtection2);
+            ShapedRecipe recipe = new ShapedRecipe(Items.TAL_PROTEC_T2.getItem());
             recipe.shape("GGG","EDE","GGG");
 
             recipe.setIngredient('G', Material.GOLD_INGOT);
@@ -87,7 +100,7 @@ public class Main extends JavaPlugin {
 
         public ShapedRecipe lifeAppleRecipe() {
 
-            ShapedRecipe recipe = new ShapedRecipe(ItemAssignation.PommeDeVie);
+            ShapedRecipe recipe = new ShapedRecipe(Items.POMME_DE_VIE.getItem());
             recipe.shape("GGG","GPG","GGG");
 
             recipe.setIngredient('G', Material.GOLD_BLOCK);
@@ -98,7 +111,7 @@ public class Main extends JavaPlugin {
 
         public ShapedRecipe energyDrinkRecipe() {
 
-            ShapedRecipe recipe = new ShapedRecipe(ItemAssignation.EnergyDrink);
+            ShapedRecipe recipe = new ShapedRecipe(Items.ENERGY_DRINK.getItem());
             recipe.shape("SBS","PNF","SBS");
 
             recipe.setIngredient('S', Material.SUGAR);
@@ -110,6 +123,9 @@ public class Main extends JavaPlugin {
             return recipe;
         }
 
+    public static Main getInstance() {
+        return plugin;
+    }
 }
 
 
