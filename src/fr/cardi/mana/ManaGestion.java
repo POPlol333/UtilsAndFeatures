@@ -9,6 +9,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import java.util.ArrayList;
+
+
 public class ManaGestion implements Listener {
 
     private final Main main;
@@ -24,14 +27,19 @@ public class ManaGestion implements Listener {
         Player player = e.getPlayer();
         Pool pool;
 
+
         if (main.getConfig().get("players." + player.getName() + ".pool") != null) {
             pool = new Pool(player.getName(),
                     main.getConfig().getInt("players." + player.getName() + ".pool"),
-                    main.getConfig().getInt("players." + player.getName() + ".poolmax"));
+                    main.getConfig().getInt("players." + player.getName() + ".poolmax"),
+                    main.getConfig().getBoolean("player."+ player.getName() + ".hasInfiniteMana"),
+                    (ArrayList<String>) main.getConfig().getList("players." + player.getName() + ".listeTechnique"));
+                    main.saveConfig();
         } else {
-            pool = new Pool(player.getName(), 300, 300);
+            ArrayList<String> techniqueDeBase = new ArrayList<>();
+            techniqueDeBase.add("telepathy");
+            pool = new Pool(player.getName(), 300, 300, false, techniqueDeBase);
         }
-
         PoolManager.addPool(player.getName(), pool);
     }
 
@@ -43,6 +51,8 @@ public class ManaGestion implements Listener {
 
         main.getConfig().set("players." + player.getName() + ".pool", pool.getPool());
         main.getConfig().set("players." + player.getName() + ".poolmax", pool.getPoolMax());
+        main.getConfig().set("players." + player.getName() + ".hasInfiniteMana", pool.getHasInfiniteMana());
+        main.getConfig().set("players." + player.getName() + ".listeTechnique", pool.getTechniqueList());
         main.saveConfig();
 
         PoolManager.removePool(player.getName());

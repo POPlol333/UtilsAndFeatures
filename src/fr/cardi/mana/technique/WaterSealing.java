@@ -9,6 +9,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.logging.Logger;
 
@@ -24,18 +26,35 @@ public class WaterSealing implements CommandExecutor {
 
         if(sender instanceof Player) {
 
-            Player player = (Player) sender;
+            if (args.length == 1) {
 
-            Pool pool = PoolManager.getPool(player.getName());
+                Player player = (Player) sender;
 
-            if(pool.getPool() >= 200) {
+                Pool pool = PoolManager.getPool(player.getName());
 
-                Bukkit.dispatchCommand(player, "/hsphere 95 7,7,7");
-                Bukkit.dispatchCommand(player, "/sphere 9 6,6,6");
-                pool.removePool(200);
-                logger.warning(String.format("%s A UTILISÉ WATER SEALING, IL LUI RESTE %s UNITÉ DE MANA", pool.getPseudo(), pool.getPool()));
-            } else {
-                player.sendMessage("Tu n'as pas assez de mana");
+
+                if(pool.getTechniqueList().contains("water-sealing")) {
+                    if(pool.getHasInfiniteMana()) player.sendMessage("ok");
+                    else player.sendMessage("non");
+                    if (pool.getHasInfiniteMana() || pool.getPool() >= 200) {
+                        String targetName = args[0];
+
+                        if (Bukkit.getPlayer(targetName) != null) {
+                            Player target = Bukkit.getPlayer(targetName);
+                            target.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
+                            target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, Integer.MAX_VALUE, 10));
+
+                            if(!pool.getHasInfiniteMana()) pool.removePool(200);
+
+                            Bukkit.dispatchCommand(target, "/hsphere 95 7,7,7");
+                            Bukkit.dispatchCommand(target, "/sphere 9 6,6,6");
+                            logger.warning(String.format("%s A UTILISÉ WATER SEALING SUR %s, IL LUI RESTE %s UNITÉ DE MANA", pool.getPseudo(), target.getName(), pool.getPool()));
+                        }
+                    }
+                    else {
+                        player.sendMessage("§3§oJe n'ai pas assez de mana..");
+                    }
+                }
             }
         }
 

@@ -40,6 +40,10 @@ commands:
       description: Permet de faire parler quelqu'un !
       permission: UtilsAndFeatures.speak
       permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !
+    setInfiniteMana:
+      description: Set le player.playerName.hasInfiniteMana a True ou False
+      permission: mana.setInfiniteMana
+      permission-message: §4§oQu'est-ce que j'essaye? Je sais pertinemment que je n'ai pas le droit de faire ça !
     water-sealing:
       description: water sealing
       permission: mana.water.sealing

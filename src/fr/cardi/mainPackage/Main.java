@@ -11,6 +11,9 @@ import fr.cardi.mainPackage.usualCommands.healthAndFood.Feed;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.Heal;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.SetHealth;
 import fr.cardi.mana.ManaGestion;
+import fr.cardi.mana.pool.Pool;
+import fr.cardi.mana.pool.PoolGenerator;
+import fr.cardi.mana.pool.setInfiniteMana;
 import fr.cardi.mana.technique.WaterSealing;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -47,6 +50,8 @@ public class Main extends JavaPlugin {
             getCommand("broadcast").setExecutor(new Broadcast());
             getCommand("head").setExecutor(new head());
             getCommand("speak").setExecutor(new Speak());
+
+            getCommand("setInfiniteMana").setExecutor(new setInfiniteMana());
             getCommand("water-sealing").setExecutor(new WaterSealing());
 
 
@@ -55,6 +60,7 @@ public class Main extends JavaPlugin {
             Bukkit.addRecipe(lifeAppleRecipe());
             Bukkit.addRecipe(energyDrinkRecipe());
 
+            new PoolGenerator(this).start();
         }
 
         @Override
