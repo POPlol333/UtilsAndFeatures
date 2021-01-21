@@ -54,6 +54,7 @@ public class PreloadMenu {
         inv.setItem(2, Items.POMME_DE_VIE.getItem());
         inv.setItem(3, Items.ENERGY_DRINK.getItem());
         inv.setItem(4, Items.PETIT_BANDAGE.getItem());
+        inv.setItem(6, Items.ARGENT.getItem());
 
         player.openInventory(inv);
     }

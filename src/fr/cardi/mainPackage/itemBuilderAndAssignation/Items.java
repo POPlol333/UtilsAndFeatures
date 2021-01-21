@@ -19,7 +19,10 @@ public enum Items {
     OTHER_GUI(ItemBuilder.customItemConfig(Material.NETHER_STAR, "§6§lAutres", "Items sans tier")),
     POMME_DE_VIE(ItemBuilder.customItemConfig(Material.GOLDEN_APPLE, "§c§lPomme de vie", "Octroie 2 coeurs supplémentaires")),
     ENERGY_DRINK(ItemBuilder.customItemConfig(Material.POTION, "§2§lEnergy §e§lDrink", "Boost vos capacités physiques !")),
-    PETIT_BANDAGE(ItemBuilder.customItemConfig(Material.PAPER, "§f§lBandage de qualité moyenne", "Regen 5 HP"));
+    PETIT_BANDAGE(ItemBuilder.customItemConfig(Material.PAPER, "§f§lBandage de qualité moyenne", "Regen 5 HP")),
+
+    ARGENT(ItemBuilder.customItemConfig(Material.EMERALD, "§a§lVarys", "De l'argent"));
+
 
 
     private final ItemStack item;

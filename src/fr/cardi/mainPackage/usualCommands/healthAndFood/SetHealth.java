@@ -19,7 +19,7 @@ public class SetHealth implements CommandExecutor {
             if(cmd.getName().equalsIgnoreCase("setHealth")){
 
                 if(args.length != 2) {
-                    player.sendMessage("§7§lLa commande est /manualSetHealth <Player> <int>");
+                    player.sendMessage("§7§lLa commande est /SetHealth <Player> <int>");
                 }
                 else {
 

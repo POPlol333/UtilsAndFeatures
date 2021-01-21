@@ -10,12 +10,7 @@ import fr.cardi.mainPackage.usualCommands.*;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.Feed;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.Heal;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.SetHealth;
-import fr.cardi.mainPackage.usualCommands.playerRelative.Injure;
-import fr.cardi.mainPackage.usualCommands.playerRelative.Invsee;
-import fr.cardi.mainPackage.usualCommands.playerRelative.Speak;
-import fr.cardi.mainPackage.usualCommands.playerRelative.head;
-import fr.cardi.mana.ManaGestion;
-import fr.cardi.mana.pool.PoolGenerator;
+import fr.cardi.mainPackage.usualCommands.playerRelative.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ShapedRecipe;
@@ -52,11 +47,12 @@ public class Main extends JavaPlugin {
             getCommand("injure").setExecutor(new Injure());
 
             Bukkit.addRecipe(SpeedRecipe());
+            Bukkit.addRecipe(SpeedRecipe1());
             Bukkit.addRecipe(ProtectionRecipe());
+            Bukkit.addRecipe(ProtectionRecipe1());
             Bukkit.addRecipe(lifeAppleRecipe());
             Bukkit.addRecipe(energyDrinkRecipe());
 
-            new PoolGenerator(this).start();
         }
 
         @Override
@@ -73,14 +69,25 @@ public class Main extends JavaPlugin {
             pm.registerEvents(new ChatTrigger(), this);
             pm.registerEvents(new GuiClickListener(), this);
             pm.registerEvents(new ReleaseClass(), this);
-            pm.registerEvents(new ManaGestion(this), this);
         }
 
         public ShapedRecipe SpeedRecipe() {
 
-            ShapedRecipe recipe = new ShapedRecipe(Items.AMU_SPEED_T2.getItem());
+            ShapedRecipe recipe = new ShapedRecipe(Items.AMU_SPEED_T1.getItem());
 
             recipe.shape("SDS","SPS","SDS");
+            recipe.setIngredient('D', Material.DIAMOND);
+            recipe.setIngredient('P', Material.FEATHER);
+            recipe.setIngredient('S', Material.SUGAR);
+
+            return recipe;
+        }
+
+        public ShapedRecipe SpeedRecipe1() {
+
+            ShapedRecipe recipe = new ShapedRecipe(Items.AMU_SPEED_T2.getItem());
+
+            recipe.shape("SDS", "SPS", "SDS");
             recipe.setIngredient('D', Items.AMU_SPEED_T1.getItem().getData());
             recipe.setIngredient('P', Material.FEATHER);
             recipe.setIngredient('S', Material.SUGAR);
@@ -90,12 +97,24 @@ public class Main extends JavaPlugin {
 
         public ShapedRecipe ProtectionRecipe() {
 
-            ShapedRecipe recipe = new ShapedRecipe(Items.TAL_PROTEC_T2.getItem());
+            ShapedRecipe recipe = new ShapedRecipe(Items.TAL_PROTEC_T1.getItem());
             recipe.shape("GGG","EDE","GGG");
 
             recipe.setIngredient('G', Material.GOLD_INGOT);
             recipe.setIngredient('E', Material.ENCHANTED_BOOK);
             recipe.setIngredient('D', Material.DIAMOND_CHESTPLATE);
+
+            return recipe;
+        }
+
+        public ShapedRecipe ProtectionRecipe1() {
+
+            ShapedRecipe recipe = new ShapedRecipe(Items.TAL_PROTEC_T2.getItem());
+            recipe.shape("GGG","EDE","GGG");
+
+            recipe.setIngredient('G', Material.GOLD_INGOT);
+            recipe.setIngredient('E', Material.ENCHANTED_BOOK);
+            recipe.setIngredient('D', Items.TAL_PROTEC_T1.getItem().getData());
 
             return recipe;
         }
