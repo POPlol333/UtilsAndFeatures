@@ -24,23 +24,19 @@ public class GuiClickListener implements Listener {
 
             e.setCancelled(true);
 
-
-            if(current.getType()== Material.FEATHER){
-                player.closeInventory();
-                PreloadMenu.AdminSpeedInventory(player);
-
-            }
-
-            if(current.getType()== Material.DIAMOND) {
-                player.closeInventory();
-                PreloadMenu.AdminProtectionInventory(player);
-
-            }
-
-            if(current.getType()== Material.NETHER_STAR) {
-                player.closeInventory();
-                PreloadMenu.OtherGui(player);
-
+            switch (current.getType()) {
+                case FEATHER:
+                    player.closeInventory();
+                    PreloadMenu.AdminSpeedInventory(player);
+                    break;
+                case DIAMOND:
+                    player.closeInventory();
+                    PreloadMenu.AdminProtectionInventory(player);
+                    break;
+                case NETHER_STAR:
+                    player.closeInventory();
+                    PreloadMenu.OtherGui(player);
+                    break;
             }
 
         }

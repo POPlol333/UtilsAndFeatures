@@ -10,11 +10,12 @@ import fr.cardi.mainPackage.usualCommands.*;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.Feed;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.Heal;
 import fr.cardi.mainPackage.usualCommands.healthAndFood.SetHealth;
+import fr.cardi.mainPackage.usualCommands.playerRelative.Injure;
+import fr.cardi.mainPackage.usualCommands.playerRelative.Invsee;
+import fr.cardi.mainPackage.usualCommands.playerRelative.Speak;
+import fr.cardi.mainPackage.usualCommands.playerRelative.head;
 import fr.cardi.mana.ManaGestion;
-import fr.cardi.mana.pool.Pool;
 import fr.cardi.mana.pool.PoolGenerator;
-import fr.cardi.mana.pool.setInfiniteMana;
-import fr.cardi.mana.technique.WaterSealing;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ShapedRecipe;
@@ -30,14 +31,12 @@ public class Main extends JavaPlugin {
         private Logger logger = Logger.getLogger("Minecraft");
 
 
-
         @Override
         public void onEnable(){
 
             saveDefaultConfig();
 
             logger.warning("[UtilsAndFeatures a bien démarré]");
-
 
             registerEvents();
 
@@ -50,10 +49,7 @@ public class Main extends JavaPlugin {
             getCommand("broadcast").setExecutor(new Broadcast());
             getCommand("head").setExecutor(new head());
             getCommand("speak").setExecutor(new Speak());
-
-            getCommand("setInfiniteMana").setExecutor(new setInfiniteMana());
-            getCommand("water-sealing").setExecutor(new WaterSealing());
-
+            getCommand("injure").setExecutor(new Injure());
 
             Bukkit.addRecipe(SpeedRecipe());
             Bukkit.addRecipe(ProtectionRecipe());
@@ -85,7 +81,7 @@ public class Main extends JavaPlugin {
             ShapedRecipe recipe = new ShapedRecipe(Items.AMU_SPEED_T2.getItem());
 
             recipe.shape("SDS","SPS","SDS");
-            recipe.setIngredient('D', Material.DIAMOND);
+            recipe.setIngredient('D', Items.AMU_SPEED_T1.getItem().getData());
             recipe.setIngredient('P', Material.FEATHER);
             recipe.setIngredient('S', Material.SUGAR);
 

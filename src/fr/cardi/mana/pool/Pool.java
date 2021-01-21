@@ -6,16 +6,14 @@ import java.util.List;
 public class Pool {
 
     private final String pseudo;
-    private boolean hasInfiniteMana;
-    private int pool, poolMax;
-    private ArrayList<String> techniqueList;
 
-    public Pool(String pseudo, int pool, int poolMax, boolean hasInfiniteMana, ArrayList<String> techniqueList) {
+    private int pool, poolMax;
+
+
+    public Pool(String pseudo, int pool, int poolMax) {
         this.pseudo = pseudo;
         this.pool = pool;
         this.poolMax = poolMax;
-        this.hasInfiniteMana = hasInfiniteMana;
-        this.techniqueList = techniqueList;
     }
 
 
@@ -54,25 +52,5 @@ public class Pool {
     public void setPoolMax(int poolMax) {
         this.poolMax = poolMax;
     }
-
-    public boolean getHasInfiniteMana() {
-        return this.hasInfiniteMana;
-    }
-    public void setHasInfinitMana(boolean bool) {
-        this.hasInfiniteMana = bool;
-    }
-
-    public void addTechniqueList(String args) {
-        this.techniqueList.add(args);
-
-    }
-
-    public void removeTechniqueList(String args) {
-        this.techniqueList.remove(args);
-
-    }
-
-    public List<String> getTechniqueList() {
-        return this.techniqueList;
-    }
 }
+

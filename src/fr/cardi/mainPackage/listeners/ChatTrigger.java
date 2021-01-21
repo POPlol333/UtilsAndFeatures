@@ -7,6 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChatEvent;
 
+import java.util.List;
+
 public class ChatTrigger implements Listener {
 
     @EventHandler
@@ -20,10 +22,9 @@ public class ChatTrigger implements Listener {
         String pName = player.getName();
 
 
-        if(message.contains("Release")){
+        if(message.contains("Release")) {
             ReleaseClass.Release(player);
-
-        } else {
+        }  else {
             Bukkit.broadcastMessage("§l"+pName + " §r§b>> §r" +message.replace("&", "§"));
         }
     }

@@ -21,6 +21,7 @@ public enum Items {
     ENERGY_DRINK(ItemBuilder.customItemConfig(Material.POTION, "§2§lEnergy §e§lDrink", "Boost vos capacités physiques !")),
     PETIT_BANDAGE(ItemBuilder.customItemConfig(Material.PAPER, "§f§lBandage de qualité moyenne", "Regen 5 HP"));
 
+
     private final ItemStack item;
     
     Items(ItemStack item) {
@@ -30,6 +31,7 @@ public enum Items {
     public ItemStack getItem() {
         return item;
     }
+
     
     public boolean isEquals(ItemStack item) {
         return getItem().getItemMeta().getDisplayName().equals(item.getItemMeta().getDisplayName());
